@@ -4,6 +4,7 @@ close all;
 
 Ns = 3;
 d = 4;
+method = '';
 
 for Nm = 3:8
     
@@ -94,8 +95,10 @@ mpc.set( 'HESSIAN_APPROXIMATION',       'GAUSS_NEWTON'      );
 mpc.set( 'DISCRETIZATION_TYPE',         'MULTIPLE_SHOOTING' );
 mpc.set( 'SPARSE_QP_SOLUTION',          'FULL_CONDENSING_N2');
 if d == 4
+    method = '_GL8';
     mpc.set( 'INTEGRATOR_TYPE',         'INT_IRK_GL8'       );
 elseif d == 3
+    method = '_GL6';
     mpc.set( 'INTEGRATOR_TYPE',         'INT_IRK_GL6'       );
 else
     error('These scripts were written for a 3- or 4-stage Gauss collocation method.')
@@ -168,7 +171,12 @@ disp(['Average condenseTime   : ' num2str(round(mean(condenseTime)*1e6)*1e-3) 'm
 disp(['----------------------------------------------------'])
 disp(['Average cpuTime        : ' num2str(round(mean(cpuTime)*1e6)*1e-3) 'ms'])
 
-save(['../ACADO_GN_' num2str(Nm) '.mat'],'input');
+load(['../../data_ME_' num2str(Nm) method '.mat'],'x0_init','xN_term','resX','resU','res');
+
+err_ACADO_x = max(max(abs(output.x-resX.')))
+err_ACADO_u = max(max(abs(output.u-resU.')))
+
+save(['../ACADO_GN_' num2str(Nm) method '.mat'],'input','output','iter','simTime','qpTime','condenseTime','regularizeTime','cpuTime','outputs');
 
 !rm *_RUN*
 !rm *_data_acadodata*
