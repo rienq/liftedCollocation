@@ -13,7 +13,7 @@ Running the Matlab scripts in the folder chain_mass/ACADO_SQP will generate the 
 - To produce the convergence plots, you can run the Matlab script 'chain_mass/makeFigures.m'. 
 - To produce the tables detailing the computation times, you can run the Matlab script 'chain_mass/ACADO_SQP/makeTables.m'.
 
-Optionally, you can also run the scripts in the folder chain_mass/CasADi_IPOPT to obtain a reference solution to the optimal control problem using Ipopt from CasADi (follow the instructions on https://github.com/casadi/casadi/wiki to download the binary for your platform).
+Optionally, you can also run the scripts in the folder chain_mass/CasADi_IPOPT to obtain a reference solution to the optimal control problem using Ipopt from CasADi (follow the instructions on https://github.com/casadi/casadi/wiki to download the binary for your platform: https://github.com/casadi/casadi/wiki/InstallationInstructions).
 
 ## ACADO Toolkit: installation
 
