@@ -11,11 +11,9 @@ MarkerSize = 14;
 Nm = 5;
 
 %% minimum control effort
-load(['data_ME_' num2str(Nm) '.mat'],'x0_init','xN_term','resX','resU','res');
-res_x_ME = resX; res_u_ME = resU;
-
 load(['data_ME_' num2str(Nm) '_GL6.mat'],'x0_init','xN_term','resX','resU','res');
 res_x_ME_GL6 = resX; res_u_ME_GL6 = resU;
+res_x_ME = resX; res_u_ME = resU;
 
 
 load(['ACADO_SQP/ACADO_GN_' num2str(Nm) '_GL6.mat'],'input','output','iter','simTime','qpTime','condenseTime','regularizeTime','cpuTime','outputs');
@@ -49,7 +47,7 @@ end
 TOL = 2e-7;
 
 %% time optimal
-load(['data_TO_' num2str(Nm) '_0_GL6.mat'],'x0_init','xN_term','resX','resU','res');
+load(['data_TO_' num2str(Nm) '_GL6.mat'],'x0_init','xN_term','resX','resU','res');
 res_x_TO = resX(1:end-1,:); res_u_TO = resU;
 T2 = resX(end,1); Ts2 = T2/N;
 

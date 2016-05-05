@@ -8,6 +8,8 @@ import casadi.*
 d = 4;
 Ns = 3; % NUMBER OF INTEGRATION STEPS
 
+method = '_GL8';
+
 resX = []; resU = [];
 for Nm = 3:8
     disp(['---- Nm value = ' num2str(Nm) '----']);
@@ -281,5 +283,7 @@ resU = vertcat(res_U{:});
 resU = full(reshape(resU,nu,N));
 
 res = full(res.x);
+
+save(['../data_ME_' num2str(Nm) method '.mat'],'x0_init','xN_term','resX','resU','resK','res','lam','mu');
 
 end
