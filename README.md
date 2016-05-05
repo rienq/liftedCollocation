@@ -5,7 +5,7 @@ The code allows one to reconstruct the presented numerical results for the optim
 
 ## General Instructions
 
-First install the Matlab interface of the ACADO Toolkit, which is included as a zip archive in this repository. The installation instructions can be found below.
+First install the Matlab interface of the ACADO Toolkit, which is included as a zip archive 'acado-master.zip' in this repository. The installation instructions can be found below.
 
 Running the Matlab scripts in the folder chain_mass/ACADO_SQP will generate the C-code for the OCP solver and runs the SQP method based on the corresponding lifted collocation integrator. 
 
