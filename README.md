@@ -5,8 +5,48 @@ The code allows one to reconstruct the presented numerical results for the optim
 
 ## Instructions
 
-First install the Matlab interface of the ACADO Toolkit which is a submodule of this repository (follow the instructions on http://acado.github.io/matlab_overview.html to install ACADO from its Matlab interface).
+First install the Matlab interface of the ACADO Toolkit, which is included as a zip archive in this repository. The installation instructions can be found below.
 
-Running the Matlab scripts in the folder chain_mass/ACADO_SQP will generate the C-code for the OCP solver and runs the SQP method based on the corresponding lifted collocation integrator.
+Running the Matlab scripts in the folder chain_mass/ACADO_SQP will generate the C-code for the OCP solver and runs the SQP method based on the corresponding lifted collocation integrator. By running such a Matlab script, e.g. 'chain_mass/ACADO_SQP/Gauss_Newton/chain_mass.m', the results are written to a .mat file which can later be used to generate the figures and/or tables from the paper.
+To generate the convergence plots, you can run the Matlab script ' '. To generate the tables detailing the computation times, you can run the Matlab script ' '.
 
-As a reference, you can also run the scripts in the folder chain_mass/CasADi_IPOPT to solve the optimal control problem using Ipopt from CasADi (follow the instructions on https://github.com/casadi/casadi/wiki to download the binary).
+Optionally, you can also run the scripts in the folder chain_mass/CasADi_IPOPT to obtain a reference solution to the optimal control problem using Ipopt from CasADi (follow the instructions on https://github.com/casadi/casadi/wiki to download the binary for your platform).
+
+## ACADO Toolkit Installation Instructions
+
+Note that detailed instructions can also be found on http://acado.github.io/matlab_overview.html to install ACADO Toolkit from its Matlab interface.
+
+
+To install and use the MATLAB interface you need to have a recent MATLAB version and a C++ compiler installed.
+In order to know which compiler is compatible with your Matlab version, you can have a look here: http://de.mathworks.com/support/compilers/R2016a/
+and to change the default compiler for Matlab, you can follow the instructions here: http://de.mathworks.com/help/matlab/matlab_external/changing-default-compiler.html
+
+
+You can then start to compile the source code of ACADO Toolkit from Matlab. For this purpose, you should unzip the archive and go to the main folder of acado_master from Matlab where you then navigate further to the Matlab installation directory:
+
+cd interfaces/matlab/;
+
+
+You are now ready to compile the ACADO interface. This compilation will take several minutes but needs to be done only once. Run “make” in your command window:
+
+make clean all;
+
+
+You will see:
+
+Making ACADO...
+
+
+and after a while when the compilation is finished:
+
+ACADO successfully compiled.
+Needed to compile XYZ file(s).
+
+If you need to restart Matlab, run this make file again
+to set all paths or run savepath in your console to
+save the current search path for future sessions.
+
+
+ACADO has now been compiled. As the text indicated every time you restart MATLAB you need to run “make” again to set all paths. When running “make” again no new files need to be compiled and the process will only take a few seconds. However, it is easier to save your paths for future Matlab session. Do so by running “savepath” in your command window (this step is optional).
+
+savepath;
