@@ -11,13 +11,13 @@ Running the Matlab scripts in the folder chain_mass/ACADO_SQP will generate the 
 
 - By running such a Matlab script, e.g. '*chain_mass/ACADO_SQP/Gauss_Newton/chain_mass.m*', the results are written to a .mat file which can later be used to generate the figures and/or tables from the paper. There are 4 variants of the algorithms which can each be tested both within the Gauss-Newton and the exact Hessian based SQP method:
 
-..- without lifting (MS): '*chain_mass/ACADO_SQP/Gauss_Newton/chain_mass.m*' and '*chain_mass/ACADO_SQP/Exact_Hessian/chain_mass.m*'
+  - without lifting (MS): '*chain_mass/ACADO_SQP/Gauss_Newton/chain_mass.m*' and '*chain_mass/ACADO_SQP/Exact_Hessian/chain_mass.m*'
 
-..- exact lifting (LC-EN): '*chain_mass/ACADO_SQP/Gauss_Newton/chain_mass_EN.m*' and '*chain_mass/ACADO_SQP/Exact_Hessian/chain_mass_EN.m*'
+  - exact lifting (LC-EN): '*chain_mass/ACADO_SQP/Gauss_Newton/chain_mass_EN.m*' and '*chain_mass/ACADO_SQP/Exact_Hessian/chain_mass_EN.m*'
 
-..- IN lifting (LC-IN): '*chain_mass/ACADO_SQP/Gauss_Newton/chain_mass_IN.m*' and '*chain_mass/ACADO_SQP/Exact_Hessian/chain_mass_IN.m*'
+  - IN lifting (LC-IN): '*chain_mass/ACADO_SQP/Gauss_Newton/chain_mass_IN.m*' and '*chain_mass/ACADO_SQP/Exact_Hessian/chain_mass_IN.m*'
 
-..- INIS lifting (LC-INIS): '*chain_mass/ACADO_SQP/Gauss_Newton/chain_mass_INIS.m*' and '*chain_mass/ACADO_SQP/Exact_Hessian/chain_mass_INIS.m*'
+  - INIS lifting (LC-INIS): '*chain_mass/ACADO_SQP/Gauss_Newton/chain_mass_INIS.m*' and '*chain_mass/ACADO_SQP/Exact_Hessian/chain_mass_INIS.m*'
 				
 - To produce the convergence plots, you can run the Matlab script '*chain_mass/makeFigures.m*'. 
 
