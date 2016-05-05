@@ -1,3 +1,4 @@
+%% Exact Hessian based SQP implementation using collocation with IN lifting
 clc;
 clear all;
 close all;

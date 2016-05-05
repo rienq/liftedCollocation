@@ -1,3 +1,4 @@
+%% Gauss-Newton based SQP implementation using collocation without lifting
 clc;
 clear all;
 close all;
