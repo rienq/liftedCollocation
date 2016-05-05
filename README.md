@@ -24,32 +24,27 @@ To install and use the MATLAB interface you need to have a recent MATLAB version
 In order to know which compilers are compatible with your Matlab version and on your platform, you can have a look here: http://de.mathworks.com/support/compilers/R2016a/
 and to change the default compiler for Matlab, you can follow the instructions here: http://de.mathworks.com/help/matlab/matlab_external/changing-default-compiler.html
 
-
 - You can then start to compile the source code of ACADO Toolkit from Matlab. For this purpose, you should unzip the archive and go to the main folder of acado_master from Matlab where you then navigate further to the Matlab installation directory:
 
-cd interfaces/matlab/;
-
+		cd interfaces/matlab/;
 
 - You are now ready to compile the ACADO interface. This compilation will take several minutes but needs to be done only once. Run “make” in your command window:
 
-make clean all;
-
+		make clean all;
 
 - You will see:
 
-Making ACADO...
-
+		Making ACADO...
 
 - and after a while when the compilation is finished:
 
-ACADO successfully compiled.
-Needed to compile XYZ file(s).
+		ACADO successfully compiled.
+		Needed to compile XYZ file(s).
 
-If you need to restart Matlab, run this make file again
-to set all paths or run savepath in your console to
-save the current search path for future sessions.
-
+		If you need to restart Matlab, run this make file again
+		to set all paths or run savepath in your console to
+		save the current search path for future sessions.
 
 - ACADO has now been compiled. As the text indicated every time you restart MATLAB you need to run “make” again to set all paths. When running “make” again no new files need to be compiled and the process will only take a few seconds. However, it is easier to save your paths for future Matlab session. Do so by running “savepath” in your command window (this step is optional).
 
-savepath;
+		savepath;
