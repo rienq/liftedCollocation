@@ -4,12 +4,19 @@ close all;
 
 import casadi.*
 
-% Get collocation points
-d = 4;
-Ns = 3; % NUMBER OF INTEGRATION STEPS
+% -------------
+% Ns: number of integration steps per shooting interval
+Ns = 3; 
 
+% -------------
+% d: number of collocation nodes
+% d = 4 --> 4-stage Gauss method of order 8
+% d = 3 --> 3-stage Gauss method of order 6
+d = 4;
 method = '_GL8';
 
+% -------------
+% Nm: number of masses in the chain
 for Nm = 3:8
     
     disp(['---- Nm value = ' num2str(Nm) '----']);

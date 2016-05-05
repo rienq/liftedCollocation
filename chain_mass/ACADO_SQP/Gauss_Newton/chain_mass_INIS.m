@@ -2,10 +2,20 @@ clc;
 clear all;
 close all;
 
-Ns = 3;
-d = 4;
 method = '';
 
+% -------------
+% Ns: number of integration steps per shooting interval
+Ns = 3; 
+
+% -------------
+% d: number of collocation nodes
+% d = 4 --> 4-stage Gauss method of order 8
+% d = 3 --> 3-stage Gauss method of order 6
+d = 4;
+
+% -------------
+% Nm: number of masses in the chain
 for Nm = 3:8
     
     global ACADO_;
