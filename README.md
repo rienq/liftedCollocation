@@ -17,7 +17,7 @@ Optionally, you can also run the scripts in the folder chain_mass/CasADi_IPOPT t
 
 ## ACADO Toolkit: installation
 
-Note that detailed instructions can also be found on http://acado.github.io/matlab_overview.html to install ACADO Toolkit from its Matlab interface.
+(Note that these detailed instructions to install ACADO Toolkit from its Matlab interface can also be found on: http://acado.github.io/matlab_overview.html In addition, there exists an active discussion forum which can be found here: https://sourceforge.net/p/acado/discussion/general/ )
 
 
 To install and use the MATLAB interface you need to have a recent MATLAB version and a C++ compiler installed.
