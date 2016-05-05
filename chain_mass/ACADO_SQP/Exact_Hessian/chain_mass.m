@@ -126,7 +126,7 @@ if COMPILE
 end
 
 %% PARAMETERS SIMULATION
-load(['../ACADO_GN_' num2str(Nm) '.mat'],'input');
+load(['../ACADO_GN_' num2str(Nm) method '.mat'],'input');
 
 input.x0 = [];
 input.W = [];
