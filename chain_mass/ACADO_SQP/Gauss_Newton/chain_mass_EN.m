@@ -115,7 +115,6 @@ else
     error('These scripts were written for a 3- or 4-stage Gauss collocation method.')
 end
 mpc.set( 'IMPLICIT_INTEGRATOR_MODE', 	'LIFTED' 			);
-mpc.set( 'LIFTED_INTEGRATOR_MODE',      1                   );
 mpc.set( 'NUM_INTEGRATOR_STEPS',        Ns*N                );
 mpc.set( 'QP_SOLVER',                   'QP_QPOASES'    	);
 mpc.set( 'HOTSTART_QP',                 'NO'             	);
