@@ -7,7 +7,7 @@ The code allows one to reconstruct the presented numerical results for the optim
 
 First install the Matlab interface of the ACADO Toolkit, which is included as a zip archive '*acado-master.zip*' in this repository. The installation instructions can be found below.
 
-Running the Matlab scripts in the folder chain_mass/ACADO_SQP will generate the C-code for the OCP solver and runs the SQP method based on the corresponding lifted collocation integrator. 
+Running the Matlab scripts in the folder chain_mass/ACADO_SQP will generate and compile the C-code for the OCP solver and runs the SQP method based on the corresponding lifted collocation integrator. Note that all these Matlab scripts define a flag '*EXPORT*' and '*COMPILE*' which you can set to zero in case you respectively do not need to export or recompile the solver again (in order to speedup the process of running the simulations).
 
 - By running such a Matlab script, e.g. '*chain_mass/ACADO_SQP/Gauss_Newton/chain_mass.m*', the results are written to a .mat file which can later be used to generate the figures and/or tables from the paper. There are 4 variants of the algorithms which can each be tested both within the Gauss-Newton and the exact Hessian based SQP method:
 
