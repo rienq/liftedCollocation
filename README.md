@@ -40,7 +40,7 @@ and to change the default compiler for Matlab, you can follow the instructions h
 
 - You are now ready to compile the ACADO interface. This compilation will take several minutes but needs to be done only once. Run “make” in your command window:
 
-		make clean all;
+		make
 
 - You will see:
 
