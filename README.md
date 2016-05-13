@@ -27,12 +27,12 @@ Running the Matlab scripts in the folder chain_mass/ACADO_SQP will generate and 
 
 Note that the above mentioned simulation scripts contain multiple parameters related to the optimal control problem formulation and its discretization:
 
-   - Ns: number of integration steps per shooting interval
-   - d: number of Gauss-Legendre collocation nodes (d = 4 --> 4-stage Gauss method of order 8, d = 3 --> 3-stage Gauss method of order 6)
-   - Nm: number of masses in the chain mass problem, such that the number of states corresponds to nx = (Nm-1)*6  (+1 for the time variable in case of the time optimal formulation)
-   - T: the control horizon length as defined in the paper (= 5.0 s for the minimum effort problem, = 1.0 s for the time optimal formulation)
-   - N: number of shooting intervals in the multiple shooting discretization
-   - wall_pos: this is the position of the wall next to the equilibrium position of the chain mass system, this constraint is imposed on all the free masses as follows:
+   - **Ns**: number of integration steps per shooting interval
+   - **d**: number of Gauss-Legendre collocation nodes (d = 4 --> 4-stage Gauss method of order 8, d = 3 --> 3-stage Gauss method of order 6)
+   - **Nm**: number of masses in the chain mass problem, such that the number of states corresponds to nx = (Nm-1)*6  (+1 for the time variable in case of the time optimal formulation)
+   - **T**: the control horizon length as defined in the paper (= 5.0 s for the minimum effort problem, = 1.0 s for the time optimal formulation)
+   - **N**: number of shooting intervals in the multiple shooting discretization
+   - **wall_pos**: this is the position of the wall next to the equilibrium position of the chain mass system, this constraint is imposed on all the free masses as follows:
 
 		for i = 1:Nm-1
 			ocp.subjectTo( wall_pos <= ps{i}(2) );
@@ -49,17 +49,17 @@ Note that the above mentioned simulation scripts contain multiple parameters rel
 Each of these scripts exports C-code by calling '*mpc.exportCode(...)*' for an ACADO generated SQP method based on a specific variant of lifted collocation as mentioned above.
 This solver is automatically compiled into a MEX file afterwards which can be run with a specific input and output structure of which the most important fields are:
 
-   - input.x0: the initial value constraint in the OCP formulation
-   - input.x: the current state trajectory over the horizon
-   - input.u: the current control trajectory over the horizon
-   - input.y: reference trajectory over the horizon in case of a least squares tracking objective
-   - input.yN: the terminal value in the reference trajectory
-   - input.W: cost matrix over the horizon in case of a least squares tracking objective
-   - input.WN: the terminal cost matrix for the tracking objective
+   - **input.x0**: the initial value constraint in the OCP formulation
+   - **input.x**: the current state trajectory over the horizon
+   - **input.u**: the current control trajectory over the horizon
+   - **input.y**: reference trajectory over the horizon in case of a least squares tracking objective
+   - **input.yN**: the terminal value in the reference trajectory
+   - **input.W**: cost matrix over the horizon in case of a least squares tracking objective
+   - **input.WN**: the terminal cost matrix for the tracking objective
 
-   - output.info: all information which could be interesting to the user regarding the performed SQP step, such as the status flag from the QP solver, the corresponding computation times, etc.
-   - output.x: the updated state trajectory over the horizon
-   - output.u: the updated control trajectory over the horizon
+   - **output.info**: all information which could be interesting to the user regarding the performed SQP step, such as the status flag from the QP solver, the corresponding computation times, etc.
+   - **output.x**: the updated state trajectory over the horizon
+   - **output.u**: the updated control trajectory over the horizon
 
 
 ## ACADO Toolkit: implementation of lifted collocation integrators
@@ -84,6 +84,7 @@ The following integrator classes specifically implement the algorithms presented
    - inexact IN lifting (LC-IN): 
 	the class *AdjointLiftedIRKExport* (first and second order sensitivity propagation), in the file '*irk_lifted_adjoint_export.cpp*'
 
+The above classes have been interfaced to the code generation framework for the multiple shooting based SQP method for real-time embedded optimization, including the automatic generation of MEX and Simulink interfaces.
 
 ## ACADO Toolkit: installation
 
