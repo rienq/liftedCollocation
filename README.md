@@ -20,7 +20,7 @@ Running the Matlab scripts in the folder chain_mass/ACADO_SQP will generate and 
 
   - INIS lifting (LC-INIS): '*chain_mass/ACADO_SQP/Gauss_Newton/chain_mass_INIS.m*' and '*chain_mass/ACADO_SQP/Exact_Hessian/chain_mass_INIS.m*'
 				
-- To produce the convergence plots based on the results saved in the .mat files, you can run the Matlab script '*chain_mass/makeFigures.m*'. 
+- To produce the SQP convergence plots based on the results saved in the .mat files, you can run the Matlab script '*chain_mass/makeFigures.m*'. 
 
 - To produce the tables detailing the computation times based on the saved results, you can run the Matlab script '*chain_mass/ACADO_SQP/makeTables.m*'.
 
@@ -29,10 +29,10 @@ Note that the above mentioned simulation scripts contain multiple parameters rel
 
    - **Ns**: number of integration steps per shooting interval
    - **d**: number of Gauss-Legendre collocation nodes (d = 4 --> 4-stage Gauss method of order 8, d = 3 --> 3-stage Gauss method of order 6)
-   - **Nm**: number of masses in the chain mass problem, such that the number of states corresponds to nx = (Nm-1)*6  (+1 for the time variable in case of the time optimal formulation)
-   - **T**: the control horizon length as defined in the paper (= 5.0 s for the minimum effort problem, = 1.0 s for the time optimal formulation)
+   - **Nm**: number of masses in the chain mass problem, such that the number of states corresponds to nx = (Nm-1)*6  (+1 for the time scaling variable in case of the time optimal OCP formulation)
+   - **T**: the control horizon length as defined in the paper (= 5.0 s for the minimum effort problem, = 1.0 s for the time optimal formulation of the OCP problem)
    - **N**: number of shooting intervals in the multiple shooting discretization
-   - **wall_pos**: this is the position of the wall next to the equilibrium position of the chain mass system, this constraint is imposed on all the free masses as follows:
+   - **wall_pos**: this is the position of the wall next to the equilibrium position of the chain mass system, the corresponding constraint is imposed on all the free masses as follows:
 
 		for i = 1:Nm-1
 			ocp.subjectTo( wall_pos <= ps{i}(2) );
@@ -71,7 +71,7 @@ The ACADO code generation tool is a specific part of this toolkit, which can be 
 In particular, it pursues the export of highly efficient C-code based on the RTI scheme for Nonlinear MPC (NMPC). A user friendly MATLAB interface is available which allows one to export, 
 compile and use auto generated code in an intuitive way and without direct interaction with C/C++ programming. 
 
-The following integrator classes specifically implement the algorithms presented in this paper, which can be found in the folder '*acado/code_generation/integrators/*':
+The following integrator classes specifically implement the algorithms presented in this paper, which can be found in the source code folder '*acado/code_generation/integrators/*':
 
    - without lifting (MS): 
 	the class *ForwardIRKExport* (first order sensitivity propagation) and *SymmetricIRKExport* (including second order sensitivity propagation), 
@@ -84,7 +84,7 @@ The following integrator classes specifically implement the algorithms presented
    - inexact IN lifting (LC-IN): 
 	the class *AdjointLiftedIRKExport* (first and second order sensitivity propagation), in the file '*irk_lifted_adjoint_export.cpp*'
 
-The above classes have been interfaced to the code generation framework for the multiple shooting based SQP method for real-time embedded optimization, including the automatic generation of MEX and Simulink interfaces.
+The above C++ classes have been embedded into the ACADO code generation framework for the multiple shooting based SQP method for real-time optimal control, including the automatic generation of MEX and Simulink interfaces.
 
 ## ACADO Toolkit: installation
 
